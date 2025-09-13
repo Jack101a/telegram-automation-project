@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  automation-bot:
+    # Build the Docker image from the Dockerfile in the current directory
+    build: .
+    
+    # A friendly name for the container
+    container_name: telegram_automation_bot
+    
+    # Load environment variables from the .env file into the container
+    env_file:
+      - .env
+      
+    # Mount volumes to persist data
+    # - The first line maps a local 'data' directory to the container's /app/data
+    #   directory, persisting the SQLite database.
+    # - The second line maps a local 'artifacts' directory to the container's
+    #   /app/artifacts, persisting screenshots.
+    volumes:
+      - ./data:/app/data
+      - ./artifacts:/app/artifacts
+      - ./automation_bot.log:/app/automation_bot.log
+      
+    # Restart the container automatically if it crashes
+    restart: unless-stopped
+
+# Note on scaling and databases:
+# For a production setup with higher concurrency, you would replace SQLite.
+# You could add a PostgreSQL service here:
+#
+#  postgres_db:
+#    image: postgres:13
+#    environment:
+#      - POSTGRES_USER=user
+#      - POSTGRES_PASSWORD=password
+#      - POSTGRES_DB=automation_db
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data
+#
+# volumes:
+#   postgres_data:
+
+
