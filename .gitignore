@@ -3,3 +3,74 @@ __pycache__/
 .env
 artifacts/
 *.db
+# Byte-compiled / caching
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+.venv311/
+venv311/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python packaging / build artefacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+*.whl
+
+# Test / coverage
+.coverage
+htmlcov/
+.coverage.*
+.pytest_cache/
+.cache
+
+# Type checkers
+.mypy_cache/
+.pytype/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / env
+.env
+.env.*.local
+secrets.json
+*.pem
+*.key
+
+# Logs and runtime artifacts
+logs/
+*.log
+artifacts/
+screenshots/
+reports/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Playwright caches / local browser state
+.playwright/
+# (Playwright browser binaries are usually in ~/.cache/ms-playwright and don't need to be committed)
+
+# Node / frontend (if present)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Misc
+*.pyc
